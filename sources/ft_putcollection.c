@@ -6,7 +6,7 @@
 /*   By: tshimoda <tshimoda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 23:31:00 by tshimoda          #+#    #+#             */
-/*   Updated: 2021/08/01 19:28:32 by tshimoda         ###   ########.fr       */
+/*   Updated: 2021/09/26 12:19:35 by tshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *str)
 {
+	if (str == NULL)
+		return (write (1, "(null)", 6));
 	return (write (1, str, ft_strlen(str)));
 }
