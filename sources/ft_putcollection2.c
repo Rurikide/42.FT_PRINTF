@@ -6,7 +6,7 @@
 /*   By: tshimoda <tshimoda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 22:50:19 by tshimoda          #+#    #+#             */
-/*   Updated: 2021/08/01 20:35:38 by tshimoda         ###   ########.fr       */
+/*   Updated: 2021/09/26 12:36:43 by tshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 int	ft_putnbr(int n)
 {
-	static int	len;
+	static int	bytes;
 
-	len = 0;
+	bytes = 0;
 	if (n < 0 && n / 10 == 0)
-		len += ft_putchar('-');
+		bytes += ft_putchar('-');
 	if (n / 10 != 0)
 		ft_putnbr(n / 10);
 	if (n % 10 < 0)
-		len += ft_putchar(-(n % 10) + '0');
+		bytes += ft_putchar(-(n % 10) + '0');
 	else
-		len += ft_putchar((n % 10) + '0');
-	return (len);
+		bytes += ft_putchar((n % 10) + '0');
+	return (bytes);
 }
 
 int	ft_putnbr_unsign(unsigned int n)
 {
-	static int	len;
+	static int	bytes;
 	int			i;
 	char		deci[25];
 	long		nb;
 
 	i = 0;
-	len = 0;
+	bytes = 0;
 	nb = n;
 	if (nb == 0)
-		len += ft_putchar('0');
+		bytes += ft_putchar('0');
 	while (nb > 0)
 	{
 		deci[i] = nb % 10 + 48;
@@ -48,13 +48,13 @@ int	ft_putnbr_unsign(unsigned int n)
 	}
 	i--;
 	while (i >= 0)
-		len += ft_putchar(deci[i--]);
-	return (len);
+		bytes += ft_putchar(deci[i--]);
+	return (bytes);
 }
 
 int	ft_hexa(unsigned long long int nb)
 {
-	int		temp;
+	int		bytes;
 	char	hexa[100];
 	char	*base;
 	int		i;
@@ -65,20 +65,20 @@ int	ft_hexa(unsigned long long int nb)
 	base = "0123456789abcdef";
 	while (nb != 0)
 	{
-		temp = nb % 16;
-		hexa[i] = base[temp];
+		bytes = nb % 16;
+		hexa[i] = base[bytes];
 		i++;
 		nb = nb / 16;
 	}
-	temp = 0;
+	bytes = 0;
 	while (i-- > 0)
-		temp += ft_putchar(hexa[i]);
-	return (temp);
+		bytes += ft_putchar(hexa[i]);
+	return (bytes);
 }
 
 int	ft_hexa_up(unsigned long long int nb)
 {
-	int		temp;
+	int		bytes;
 	char	hexa[100];
 	char	*base;
 	int		i;
@@ -89,13 +89,13 @@ int	ft_hexa_up(unsigned long long int nb)
 	base = "0123456789ABCDEF";
 	while (nb != 0)
 	{
-		temp = nb % 16;
-		hexa[i] = base[temp];
+		bytes = nb % 16;
+		hexa[i] = base[bytes];
 		i++;
 		nb = nb / 16;
 	}
-	temp = 0;
+	bytes = 0;
 	while (i-- > 0)
-		temp += ft_putchar(hexa[i]);
-	return (temp);
+		bytes += ft_putchar(hexa[i]);
+	return (bytes);
 }
