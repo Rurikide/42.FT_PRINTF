@@ -6,7 +6,7 @@
 /*   By: tshimoda <tshimoda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 14:46:17 by tshimoda          #+#    #+#             */
-/*   Updated: 2021/08/01 20:58:06 by tshimoda         ###   ########.fr       */
+/*   Updated: 2021/09/26 12:32:35 by tshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ typedef struct s_data
 	va_list		list;
 	const char	*str;
 	char		*scan_type;
-	int			flag_zone;
 	int			vernier;
-	int			scan;
 	int			pos;
 	int			sum;
 }		t_data;
 
 int		ft_printf(const char *str, ...);
+void	ft_parsef(t_data *box);
 void	ft_category_scanner(t_data *box);
 void	category_is_char(t_data *box);
 void	category_is_string(t_data *box);
@@ -37,7 +36,6 @@ void	category_is_hexa(t_data *box);
 void	category_is_hexa_up(t_data *box);
 void	category_is_hexa_ptr(t_data *box);
 void	category_is_modulo(t_data *box);
-int		ft_isalpha(t_data *box);
 int		ft_strlen(char *str);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
@@ -45,5 +43,5 @@ int		ft_putnbr(int n);
 int		ft_putnbr_unsign(unsigned int n);
 int		ft_hexa(unsigned long long int nb);
 int		ft_hexa_up(unsigned long long int nb);
-void	ft_parsef(t_data *box);
+
 #endif
